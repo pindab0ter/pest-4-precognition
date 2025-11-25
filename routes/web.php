@@ -23,8 +23,7 @@ class TestRequest extends FormRequest
 Route::post('/email-submit', fn (TestRequest $request) => to_route('home', [
     'email' => $request->validated('email'),
 ]))
-    ->name('email-form.submit')
-    ->middleware(['precognitive']);
+    ->name('email-form.submit');
 
 Route::get('/{email?}', fn (?string $email = null) => Inertia::render('Welcome', [
     'email' => $email,
